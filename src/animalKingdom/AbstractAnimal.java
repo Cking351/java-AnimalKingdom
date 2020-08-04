@@ -5,12 +5,10 @@ abstract class AbstractAnimal {
 
     private int id;
     private String name;
-    private String yearDiscovered:
+    private int yearDiscovered;
 
     // Constructor
     public AbstractAnimal(String name, int yearDiscovered) {
-        maxId++;
-        id = maxId;
         this.name = name;
         this.yearDiscovered = yearDiscovered;
     }
@@ -23,7 +21,7 @@ abstract class AbstractAnimal {
         return name;
     }
 
-    public String getYearDiscovered() {
+    public int getYearDiscovered() {
         return yearDiscovered;
     }
 
@@ -31,7 +29,7 @@ abstract class AbstractAnimal {
         this.name = name;
     }
 
-    public void setYearDiscovered(String yearDiscovered) {
+    public void setYearDiscovered(int yearDiscovered) {
         this.yearDiscovered = yearDiscovered;
     }
 
