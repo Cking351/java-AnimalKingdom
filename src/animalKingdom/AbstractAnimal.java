@@ -1,14 +1,16 @@
 package animalKingdom;
 
 abstract class AbstractAnimal {
-    private int maxId = 0;
+    protected static int maxId = 0;
 
-    private int id;
-    private String name;
-    private int yearDiscovered;
+    protected int id;
+    protected String name;
+    protected int yearDiscovered;
 
     // Constructor
     public AbstractAnimal(String name, int yearDiscovered) {
+        maxId++;
+        id = maxId;
         this.name = name;
         this.yearDiscovered = yearDiscovered;
     }
@@ -33,7 +35,14 @@ abstract class AbstractAnimal {
         this.yearDiscovered = yearDiscovered;
     }
 
+    
     public abstract String move();
     public abstract String breathe();
     public abstract String reproduce();
+    
+    
+    @Override
+    public String toString() {
+        return name + " " + reproduce() + " " + move() + " " + breathe() +  " " + yearDiscovered;
+    }
 }
