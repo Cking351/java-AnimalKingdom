@@ -1,20 +1,21 @@
 package animalKingdom;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+
 public class Main {
+    public static List<AbstractAnimal> filteredList = new ArrayList<>();
+    public static void filterAnimal(List<AbstractAnimal> animals, CheckAnimal tester) {
+        for (AbstractAnimal v : animals) {
+            if (tester.test(v)) {
+                System.out.println(v.getName());
+            }
+        }
+    }
 
     public static void workWithAnimals() {
         System.out.println("Let's see if it works..\n");
 
-        // private static List<AbstractAnimal> filterAnimal(List<AbstractAnimal> animals, CheckAnimal tester) {
-        //     List<AbstractAnimal> tempList = new ArrayList<>();
-
-        //     for (AbstractAnimal v : animals) {
-        //         if (tester.test(v)) {
-        //             tempList.add(v);
-        //         }
-        //     }
-        // }
 
 
         // MAMMAL LIST
@@ -85,6 +86,23 @@ public class Main {
 
         // *** List only those animals the breath with lungs ***
         System.out.println("\n*** List only those animals the breath with lungs ***");
+        filterAnimal(animalSort, v -> v.breathe() == "lungs");
+        System.out.println();
+
+        // *** List only those animals that breath with lungs and were named in 1758 ***
+        System.out.println("\n*** List only those animals that breath with lungs and were named in 1758 ***");
+        filterAnimal(animalSort, v -> v.reproduce() == "laid eggs" && v.breathe() == "lungs");
+        System.out.println();
+
+        // *** List alphabetically only those animals that were named in 1758 ***
+        System.out.println("\n*** List alphabetically only those animals that were named in 1758 ***");
+        animalSort.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+        for (AbstractAnimal animal : animalSort) {
+            if (animal.yearDiscovered == 1758) {
+                System.out.println("Name: " + animal.getName() + "s Id: " + animal.getId() + " named in: " + animal.getYearDiscovered());
+            }
+        }
+
         
     }
     public static void main(String[] args) {
