@@ -106,8 +106,8 @@ public class Main {
         // *** Lets try the Strech Goal ***
         System.out.println("\n*** Stretch Goal ***");
         System.out.println("\n*** For the list of animals, list alphabetically those animals that are mammals ***");
+        // Have to use instanceof
         filterAnimal(animalSort, v -> ((v instanceof Mammal)));
-        filteredList.forEach(v -> System.out.println(v.getName() + " " + v.reproduce() + " " + v.move() + " " + v.breathe() + " " + v.yearDiscovered));
 
         
     }
